@@ -31,23 +31,23 @@ container!  Docker won't initialize it properly and UniFi almost certainly
 won't have permission to write to it.
 
 ```
-docker volume create unifi-network-controller
+docker volume create unifi
 ```
 
 On a typical Docker installation, you will have access to this volume from the
-host at `/var/lib/docker/volumes/unifi-network-controller/_data`.
+host at `/var/lib/docker/volumes/unifi/_data`.
 
 Finally, run the container as follows:
 
 ```
 docker run \
-  --name unifi-network-controller \
+  --name unifi \
   --net mgmt \
   --ip 192.168.100.1 \
-  -v unifi-network-controller:/var/lib/unifi \
+  -v unifi:/var/lib/unifi \
   --cap-add DAC_READ_SEARCH \
   --cap-add NET_BIND_SERVICE \
   --cap-add SETGID \
   --cap-add SETUID \
-  iamjamestl/unifi-network-controller
+  iamjamestl/unifi
 ```
