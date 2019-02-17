@@ -49,5 +49,6 @@ docker run \
   --cap-add NET_BIND_SERVICE \
   --cap-add SETGID \
   --cap-add SETUID \
+  --sysctl net.ipv4.ip_unprivileged_port_start=0 \
   iamjamestl/unifi
 ```
