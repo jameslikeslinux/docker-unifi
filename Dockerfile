@@ -13,7 +13,12 @@ RUN apt-get update \
  && apt-get remove --purge --auto-remove -y wget \
  && rm -rf /var/cache/apt/lists/*
 
+# Containers don't run syslog
 RUN sed -i 's@-outfile SYSLOG@-outfile /dev/stdout@; s@-errfile SYSLOG@-errfile /dev/stderr@' /etc/init.d/unifi
+
+# Log to our data volume
+RUN mv -f /var/log/unifi /var/lib/unifi/logs \
+ && ln -s /var/lib/unifi/logs /var/log/unifi
 
 COPY init /
 
