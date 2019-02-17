@@ -8,7 +8,7 @@ Docker volumes to avoid the need for port and uid mapping.  The result is a
 Dockerfile and init script a fraction of the size of the popular
 [`jacobalberty/unifi`](https://hub.docker.com/r/jacobalberty/unifi/) image.
 Because this image remains so close to a supported configuration, we can more
-quickly respond to software updates without having to employ hacks.
+quickly respond to software updates with fewer hacks than others.
 
 ## Usage
 
@@ -43,7 +43,7 @@ Finally, run the container as follows:
 docker run \
   --name unifi \
   --net mgmt \
-  --ip 192.168.100.1 \
+  --ip 192.168.100.2 \
   -v unifi:/var/lib/unifi \
   --cap-add DAC_READ_SEARCH \
   --cap-add NET_BIND_SERVICE \
