@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# UniFi Network Controller Docker Init
+# Copyright (C) 2019 James T. Lee
+#
+# Starts the unifi service and waits for it to exit.
+#
+
+trap '/etc/init.d/unifi stop' TERM
+/etc/init.d/unifi start
+while /etc/init.d/unifi status > /dev/null; do sleep 1; done
