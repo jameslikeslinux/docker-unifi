@@ -7,7 +7,7 @@ FROM ubuntu:16.04
 
 RUN apt-get update \
  && apt-get install -y wget openjdk-8-jre-headless \
- && wget --progress=dot:mega https://dl.ubnt.com/unifi/5.10.17/unifi_sysvinit_all.deb \
+ && wget --progress=dot:mega https://dl.ubnt.com/unifi/5.10.19/unifi_sysvinit_all.deb \
  && apt install -y ./unifi_sysvinit_all.deb \
  && rm -f unifi_sysvinit_all.deb \
  && apt-get remove --purge --auto-remove -y wget \
